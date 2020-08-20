@@ -4,16 +4,48 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
-
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
-
 const render = require("./lib/htmlRenderer");
-
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
+teamnumber = [
+    {
+        type: "input",
+        message: "How many members are in the team you wants to generate",
+        name: "teamnumber"
+    }
+];
+employerquestion = [
+    {
+        type: "input",
+        message: "Enter Name",
+        name: "name"
+    },
+    {
+        type: "input",
+        message: "Enter ID",
+        name: "id"
+    },
+    {
+        type: "input",
+        message: "Enter Email",
+        name: "email"
+    },
+    {
+        type: "input",
+        message: "Enter Position",
+        name: "role"
+    }
+    
+];
+employeetype = [{
+engineer :{type: "input",message: "Enter GitHub Username",name: "info" },
+manager :{type: "input",message: "Enter Office Number",name: "info"},
+intern :{type: "input",message: "Enter School",name: "info"}
+    }];
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
