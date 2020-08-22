@@ -48,11 +48,11 @@ const employeetype = {
 
 function prompt() {
     inquirer.prompt(teamnumber).then(function (res) {
-         teamNumber = res.teamnumber;
-         Employeeprompt();
+        teamNumber = res.teamnumber;
+        Employeeprompt();
     });
 };
-function Employeeprompt(){
+function Employeeprompt() {
     inquirer.prompt(employerquestion).then(function (answers) {
         const role = answers.role;
         const name = answers.name;
@@ -63,22 +63,20 @@ function Employeeprompt(){
                 inquirer.prompt(employeetype.manager).then(function (answer) {
                     const info = answer.info;
                     employee.push(new Manager(name, id, email, info, role));
-                    if (employee.length == teamNumber){
-                        Writefile();    
+                    if (employee.length == teamNumber) {
+                        Writefile();
                     }
                     else {
                         Employeeprompt();
                     }
-                    
                 });
                 break;
             case "Engineer":
                 inquirer.prompt(employeetype.engineer).then(function (answer) {
                     info = answer.info;
                     employee.push(new Engineer(name, id, email, info, role));
-                    console.log(`employee length: ${employee.length}, teamNumber: ${teamNumber}`)
-                    if (employee.length == teamNumber){
-                        Writefile();    
+                    if (employee.length == teamNumber) {
+                        Writefile();
                     }
                     else {
                         Employeeprompt();
@@ -89,9 +87,8 @@ function Employeeprompt(){
                 inquirer.prompt(employeetype.intern).then(function (answer) {
                     info = answer.info;
                     employee.push(new Intern(name, id, email, info, role));
-                    console.log(`employee length: ${employee.length}, teamNumber: ${teamNumber}`)
-                    if (employee.length == teamNumber){
-                        Writefile();    
+                    if (employee.length == teamNumber) {
+                        Writefile();
                     }
                     else {
                         Employeeprompt();
