@@ -9,7 +9,7 @@ npm intall
 #### Screenshot:
 ![screenshot](screenshot.png)
 #### URL Github Repo:
-![rep-url](https://aminbouzouita.github.io/TeamGenerator/)
+[rep-url](https://aminbouzouita.github.io/TeamGenerator/)
 
 
 ---

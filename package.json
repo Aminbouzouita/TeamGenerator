@@ -8,13 +8,14 @@
     "test": "test"
   },
   "scripts": {
-    "test": "jest --verbose test/*"
+    "test": "jest --verbose test/*",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/stevetrilogy/unit10hw.git"
   },
-  "author": "",
+  "author": "Amin Bouzouita",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/stevetrilogy/unit10hw/issues"
