@@ -4,7 +4,6 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
-
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
@@ -34,9 +33,10 @@ const employerquestion = [
         name: "email"
     },
     {
-        type: "input",
-        message: "Enter Position",
-        name: "role"
+        type: "list",
+        message: "Enter Role",
+        name: "role",
+        choices: ["Manager", "Engineer", "Intern"]
     }
 
 ];
@@ -47,13 +47,19 @@ const employeetype = {
 };
 
 function prompt() {
-    inquirer.prompt(teamnumber).then(function (res) {
+    inquirer.prompt(teamnumber).then(function (res, err) {
+        if (err) {
+            throw error;
+        }
         teamNumber = res.teamnumber;
         Employeeprompt();
     });
 };
 function Employeeprompt() {
-    inquirer.prompt(employerquestion).then(function (answers) {
+    inquirer.prompt(employerquestion).then(function (answers, err) {
+        if (err) {
+            throw error;
+        }
         const role = answers.role;
         const name = answers.name;
         const id = answers.id;
